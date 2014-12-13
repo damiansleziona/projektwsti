@@ -14,11 +14,11 @@
 	<br />
 
 	<b><?php echo CHtml::encode(User::model()->getAttributeLabel('lastname')); ?>:</b>
-	<?php echo CHtml::encode(User::model()->lastname); ?>
+	<?php echo CHtml::encode($data['lastname']); ?>
 	<br />
 
 	<b><?php echo CHtml::encode(User::model()->getAttributeLabel('username')); ?>:</b>
-	<?php echo CHtml::encode(User::model()->username); ?>
+	<?php echo CHtml::encode($data['username']); ?>
 	<br />
 
 	<b><?php echo CHtml::encode(User::model()->getAttributeLabel('password')); ?>:</b>
@@ -31,6 +31,9 @@
 
 	<b><?php echo CHtml::encode(User::model()->getAttributeLabel('roles')); ?>:</b>
 	<?php echo CHtml::encode(User::model()->roles); ?>
+	<br />
+
+	<?php echo CHtml::link(CHtml::encode('Wyślij wiadomość'), array('message/create', 'id'=>$data['id'])); ?>
 	<br />
 
 
