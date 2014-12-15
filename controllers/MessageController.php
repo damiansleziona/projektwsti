@@ -32,7 +32,7 @@ class MessageController extends Controller
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update'),
+				'actions'=>array('create','update','send'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -60,6 +60,34 @@ class MessageController extends Controller
 	 * Creates a new model.
 	 * If creation is successful, the browser will be redirected to the 'view' page.
 	 */
+	public function actionSend($id)
+	{
+		$model=new Message;
+
+		// Uncomment the following line if AJAX validation is needed
+		// $this->performAjaxValidation($model);
+		$cr_user_id=Yii::app()->user->getId();
+		if(isset($_POST['Message']))
+		{
+			$model->attributes=$_POST['Message'];
+			$model->cr_user_id=$cr_user_id;
+			// print_r($_REQUEST); die;
+			
+			if($model->save())
+				$modelSend = new MessageSend;
+				$modelSend->from_user_id = $cr_user_id;
+				$modelSend->message_id = $model->id;
+				$modelSend->to_user_id = $_POST['to_user_id'];
+				$modelSend->save();
+				$this->redirect(array('view','id'=>$model->id));
+		}
+
+		$this->render('send',array(
+			'model'=>$model,
+			'to_user_id'=>$id
+		));
+	}
+
 	public function actionCreate()
 	{
 		$model=new Message;
@@ -70,6 +98,7 @@ class MessageController extends Controller
 		if(isset($_POST['Message']))
 		{
 			$model->attributes=$_POST['Message'];
+			$model->attributes['cr_user_id']=$cr_user_id;
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->id));
 		}

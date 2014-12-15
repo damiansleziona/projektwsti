@@ -4,7 +4,7 @@
 
 $this->breadcrumbs=array(
 	'Messages'=>array('index'),
-	'Create',
+	'Wyślij wiadomość',
 );
 
 $this->menu=array(
@@ -15,4 +15,4 @@ $this->menu=array(
 
 <h1>Create Message</h1>
 
-<?php $this->renderPartial('_create', array('model'=>$model)); ?>
+<?php $this->renderPartial('_send', array('model'=>$model, 'to_user_id'=>$to_user_id)); ?>

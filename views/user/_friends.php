@@ -33,7 +33,7 @@
 	<?php echo CHtml::encode(User::model()->roles); ?>
 	<br />
 
-	<?php echo CHtml::link(CHtml::encode('Wyślij wiadomość'), array('message/create', 'id'=>$data['id'])); ?>
+	<?php echo CHtml::link(CHtml::encode('Wyślij wiadomość'), array('message/send', 'id'=>$data['id'])); ?>
 	<br />
 
 
