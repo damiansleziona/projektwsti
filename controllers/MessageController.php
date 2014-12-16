@@ -32,7 +32,7 @@ class MessageController extends Controller
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update','send'),
+				'actions'=>array('create','update','send','userbox'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -154,6 +154,30 @@ class MessageController extends Controller
 	{
 		$dataProvider=new CActiveDataProvider('Message');
 		$this->render('index',array(
+			'dataProvider'=>$dataProvider,
+		));
+	}
+
+	public function actionUserBox() {
+		$userId = Yii::app()->user->id;
+
+		$connection=Yii::app()->db;
+    	$sql = 'SELECT m.id,s.from_user_id,m.subject,m.content,m.cr_date FROM message_send AS s LEFT JOIN message AS m ON s.message_id=m.id WHERE s.to_user_id='.$userId;
+    	$command=$connection->createCommand($sql);
+    	$rawData = $command->queryAll();
+
+    	$dataProvider=new CArrayDataProvider($rawData, array(
+		    'id'=>'message',
+		    'sort'=>array(
+		        'attributes'=>array(
+		             'id',
+		        ),
+		    ),
+		    'pagination'=>array(
+		        'pageSize'=>10,
+		    ),
+		));
+		$this->render('userbox',array(
 			'dataProvider'=>$dataProvider,
 		));
 	}
