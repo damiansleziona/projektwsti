@@ -2973,3 +2973,141 @@ REQUEST_URI=/pracainz/index.php?r=message/userbox
 in C:\xampp\htdocs\pracainz\protected\views\message\_singlemessage.php (13)
 in C:\xampp\htdocs\pracainz\protected\views\message\userbox.php (20)
 in C:\xampp\htdocs\pracainz\protected\controllers\MessageController.php (182)
+2014/12/16 16:11:54 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in C:\xampp\htdocs\yii\framework\web\auth\CAccessControlFilter.php:182
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\auth\CAccessControlFilter.php(145): CAccessControlFilter->accessDenied(Object(WebUser), 'You are not aut...')
+#1 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 C:\xampp\htdocs\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#3 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#6 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('admin')
+#8 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('user/admin')
+#9 C:\xampp\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#10 C:\xampp\htdocs\pracainz\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/pracainz/index.php?r=user/admin
+HTTP_REFERER=http://localhost/pracainz/index.php?r=user/index
+---
+2014/12/16 16:30:10 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in C:\xampp\htdocs\yii\framework\web\auth\CAccessControlFilter.php:182
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\auth\CAccessControlFilter.php(145): CAccessControlFilter->accessDenied(Object(WebUser), 'You are not aut...')
+#1 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 C:\xampp\htdocs\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#3 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#6 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('admin')
+#8 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('user/admin')
+#9 C:\xampp\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#10 C:\xampp\htdocs\pracainz\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/pracainz/index.php?r=user/admin
+HTTP_REFERER=http://localhost/pracainz/index.php?r=user/index
+---
+2014/12/17 10:53:01 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "gii".' in C:\xampp\htdocs\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CController.php(270): CController->missingAction('gii')
+#1 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('gii')
+#2 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('site/gii')
+#3 C:\xampp\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\pracainz\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/pracainz/index.php/site/gii
+---
+2014/12/18 17:26:02 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "index".' in C:\xampp\htdocs\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CController.php(270): CController->missingAction('')
+#1 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('')
+#2 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('file')
+#3 C:\xampp\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\pracainz\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/pracainz/index.php/file
+---
+2014/12/18 17:26:56 [warning] [application] Failed to set unsafe attribute "image" of "File".
+in C:\xampp\htdocs\pracainz\protected\controllers\FileController.php (10)
+in C:\xampp\htdocs\pracainz\index.php (13)
+2014/12/18 17:29:57 [warning] [application] Failed to set unsafe attribute "image" of "File".
+in C:\xampp\htdocs\pracainz\protected\controllers\FileController.php (10)
+in C:\xampp\htdocs\pracainz\index.php (13)
+2014/12/18 17:31:22 [warning] [application] Failed to set unsafe attribute "image" of "File".
+in C:\xampp\htdocs\pracainz\protected\controllers\FileController.php (10)
+in C:\xampp\htdocs\pracainz\index.php (13)
+2014/12/18 17:32:06 [warning] [application] Failed to set unsafe attribute "image" of "File".
+in C:\xampp\htdocs\pracainz\protected\controllers\FileController.php (10)
+in C:\xampp\htdocs\pracainz\index.php (13)
+2014/12/18 17:41:58 [warning] [application] Failed to set unsafe attribute "image" of "File".
+in C:\xampp\htdocs\pracainz\protected\controllers\FileController.php (10)
+in C:\xampp\htdocs\pracainz\index.php (13)
+2014/12/18 17:42:42 [warning] [application] Failed to set unsafe attribute "image" of "File".
+in C:\xampp\htdocs\pracainz\protected\controllers\FileController.php (10)
+in C:\xampp\htdocs\pracainz\index.php (13)
+2014/12/18 17:43:24 [warning] [application] Failed to set unsafe attribute "image" of "File".
+in C:\xampp\htdocs\pracainz\protected\controllers\FileController.php (10)
+in C:\xampp\htdocs\pracainz\index.php (13)
+2014/12/18 17:43:57 [warning] [application] Failed to set unsafe attribute "image" of "File".
+in C:\xampp\htdocs\pracainz\protected\controllers\FileController.php (10)
+in C:\xampp\htdocs\pracainz\index.php (13)
+2014/12/18 17:45:12 [warning] [application] Failed to set unsafe attribute "image" of "File".
+in C:\xampp\htdocs\pracainz\protected\controllers\FileController.php (10)
+in C:\xampp\htdocs\pracainz\index.php (13)
+2014/12/18 17:45:52 [warning] [application] Failed to set unsafe attribute "image" of "File".
+in C:\xampp\htdocs\pracainz\protected\controllers\FileController.php (10)
+in C:\xampp\htdocs\pracainz\index.php (13)
+2014/12/18 17:46:15 [warning] [application] Failed to set unsafe attribute "image" of "File".
+in C:\xampp\htdocs\pracainz\protected\controllers\FileController.php (10)
+in C:\xampp\htdocs\pracainz\index.php (13)
+2014/12/18 17:55:22 [warning] [application] Failed to set unsafe attribute "image" of "File".
+in C:\xampp\htdocs\pracainz\protected\controllers\FileController.php (10)
+in C:\xampp\htdocs\pracainz\index.php (13)
+2014/12/18 17:55:56 [warning] [application] Failed to set unsafe attribute "image" of "File".
+in C:\xampp\htdocs\pracainz\protected\controllers\FileController.php (10)
+in C:\xampp\htdocs\pracainz\index.php (13)
+2014/12/18 17:56:43 [warning] [application] Failed to set unsafe attribute "image" of "File".
+in C:\xampp\htdocs\pracainz\protected\controllers\FileController.php (10)
+in C:\xampp\htdocs\pracainz\index.php (13)
+2014/12/19 19:37:19 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "index".' in C:\xampp\htdocs\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CController.php(270): CController->missingAction('')
+#1 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('')
+#2 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('file')
+#3 C:\xampp\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\pracainz\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/pracainz/index.php/file
+---
+2014/12/19 19:38:26 [warning] [application] Failed to set unsafe attribute "image" of "File".
+in C:\xampp\htdocs\pracainz\protected\controllers\FileController.php (10)
+in C:\xampp\htdocs\pracainz\index.php (13)
+2014/12/19 20:16:12 [warning] [application] Failed to set unsafe attribute "image" of "File".
+in C:\xampp\htdocs\pracainz\protected\controllers\FileController.php (10)
+in C:\xampp\htdocs\pracainz\index.php (13)
+2014/12/19 20:20:21 [warning] [application] Failed to set unsafe attribute "image" of "File".
+in C:\xampp\htdocs\pracainz\protected\controllers\FileController.php (10)
+in C:\xampp\htdocs\pracainz\index.php (13)
+2014/12/19 20:21:07 [warning] [application] Failed to set unsafe attribute "image" of "File".
+in C:\xampp\htdocs\pracainz\protected\controllers\FileController.php (10)
+in C:\xampp\htdocs\pracainz\index.php (13)
+2014/12/19 20:22:35 [warning] [application] Failed to set unsafe attribute "image" of "File".
+in C:\xampp\htdocs\pracainz\protected\controllers\FileController.php (10)
+in C:\xampp\htdocs\pracainz\index.php (13)
+2014/12/19 20:22:35 [error] [php] move_uploaded_file(c:
+mpp\htdocs	esty\plik): failed to open stream: Invalid argument (C:\xampp\htdocs\yii\framework\web\CUploadedFile.php:198)
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(49): FileController->actionUpload()
+#1 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#2 C:\xampp\htdocs\yii\framework\web\CController.php(286): FileController->runAction()
+#3 C:\xampp\htdocs\yii\framework\web\CController.php(265): FileController->runActionWithFilters()
+#4 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): FileController->run()
+#5 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#6 C:\xampp\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#7 C:\xampp\htdocs\pracainz\index.php(13): CWebApplication->run()
+REQUEST_URI=/pracainz/index.php/file/upload
+in C:\xampp\htdocs\pracainz\protected\controllers\FileController.php (14)
+in C:\xampp\htdocs\pracainz\index.php (13)
+2014/12/19 20:23:06 [warning] [application] Failed to set unsafe attribute "image" of "File".
+in C:\xampp\htdocs\pracainz\protected\controllers\FileController.php (10)
+in C:\xampp\htdocs\pracainz\index.php (13)

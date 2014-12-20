@@ -1,26 +1,27 @@
 <?php
 
 /**
- * This is the model class for table "user".
+ * This is the model class for table "place".
  *
- * The followings are the available columns in table 'user':
+ * The followings are the available columns in table 'place':
  * @property integer $id
- * @property string $firstname
- * @property string $lastname
- * @property string $username
- * @property string $password
- * @property string $email
- * @property string $roles
- * @property string $cr_date
+ * @property string $name
+ * @property integer $cr_user_id
+ * @property string $short_description
+ * @property string $description
+ * @property string $voivodeship
+ * @property string $city
+ * @property string $latitude
+ * @property string $longitude
  */
-class User extends CActiveRecord
+class Place extends CActiveRecord
 {
 	/**
 	 * @return string the associated database table name
 	 */
 	public function tableName()
 	{
-		return 'user';
+		return 'place';
 	}
 
 	/**
@@ -31,14 +32,14 @@ class User extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('firstname, lastname, username, password, email, roles', 'required'),
-			array('firstname', 'length', 'max'=>35),
-			array('lastname', 'length', 'max'=>45),
-			array('username, password, email', 'length', 'max'=>128),
-			array('roles', 'length', 'max'=>10),
+			array('name, cr_user_id, short_description, description, voivodeship, city, latitude, longitude', 'required'),
+			array('cr_user_id', 'numerical', 'integerOnly'=>true),
+			array('name, short_description', 'length', 'max'=>256),
+			array('voivodeship, city', 'length', 'max'=>128),
+			array('latitude, longitude', 'length', 'max'=>11),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, firstname, lastname, username, email, roles', 'safe', 'on'=>'search'),
+			array('id, name, cr_user_id, short_description, description, voivodeship, city, latitude, longitude', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -50,8 +51,6 @@ class User extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'related' => array(
-				self::MANY_MANY, 'User', 'user_relation(user1_id,user2_id)')
 		);
 	}
 
@@ -62,13 +61,14 @@ class User extends CActiveRecord
 	{
 		return array(
 			'id' => 'ID',
-			'firstname' => 'Firstname',
-			'lastname' => 'Lastname',
-			'username' => 'Username',
-			'password' => 'Password',
-			'email' => 'Email',
-			'roles' => 'Roles',
-			'cr_date' => 'Cr Date',
+			'name' => 'Name',
+			'cr_user_id' => 'Cr User',
+			'short_description' => 'Short Description',
+			'description' => 'Description',
+			'voivodeship' => 'Voivodeship',
+			'city' => 'City',
+			'latitude' => 'Latitude',
+			'longitude' => 'Longitude',
 		);
 	}
 
@@ -91,12 +91,14 @@ class User extends CActiveRecord
 		$criteria=new CDbCriteria;
 
 		$criteria->compare('id',$this->id);
-		$criteria->compare('firstname',$this->firstname,true);
-		$criteria->compare('lastname',$this->lastname,true);
-		$criteria->compare('username',$this->username,true);
-		$criteria->compare('password',$this->password,true);
-		$criteria->compare('email',$this->email,true);
-		$criteria->compare('roles',$this->roles,true);
+		$criteria->compare('name',$this->name,true);
+		$criteria->compare('cr_user_id',$this->cr_user_id);
+		$criteria->compare('short_description',$this->short_description,true);
+		$criteria->compare('description',$this->description,true);
+		$criteria->compare('voivodeship',$this->voivodeship,true);
+		$criteria->compare('city',$this->city,true);
+		$criteria->compare('latitude',$this->latitude,true);
+		$criteria->compare('longitude',$this->longitude,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
@@ -107,7 +109,7 @@ class User extends CActiveRecord
 	 * Returns the static model of the specified AR class.
 	 * Please note that you should have this exact method in all your CActiveRecord descendants!
 	 * @param string $className active record class name.
-	 * @return User the static model class
+	 * @return Place the static model class
 	 */
 	public static function model($className=__CLASS__)
 	{

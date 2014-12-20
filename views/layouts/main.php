@@ -35,6 +35,7 @@
 				array('label'=>'Users', 'url'=>array('/user/index')),
 				array('label'=>'Znajomi', 'url'=>array('user/friends')),
 				array('label'=>'Wiadomości', 'url'=>array('message/userbox')),
+				array('label'=>'Miejsca', 'url'=>array('place/index')),
 				array('label'=>'Zarejestruj sie', 'url'=>array('/user/register'), 'visible'=>Yii::app()->user->isGuest),
 				array('label'=>'Login', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
 				array('label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest)
