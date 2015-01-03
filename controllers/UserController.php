@@ -152,26 +152,8 @@ class UserController extends Controller
 	public function actionFriends() 
 	{
 		$userId = Yii::app()->user->id;
-
-		$dataProvider=new CActiveDataProvider('User', array(
-    	'criteria'=>array(
-        // 'condition'=>'related.id IS NOT NULL',
-        // 'order'=>'create_time DESC',
-    	// 'join' => 'INNER JOIN',
-        // 'with'=>array('related')
-    	)));
-    	$connection=Yii::app()->db;
-    	$sql = 'SELECT * FROM user_relation AS r LEFT JOIN user AS u ON r.user2_id=u.id WHERE r.user1_id='.$userId.' AND active = 1';
-    	$command=$connection->createCommand($sql);
-    	$rawData = $command->queryAll();
     	
-		$dataProvider=new CActiveDataProvider($rawData, array(
-    	'criteria'=>array(
-        // 'condition'=>'related.id IS NOT NULL',
-        // 'order'=>'create_time DESC',
-    	// 'join' => 'INNER JOIN',
-        // 'with'=>array('related')
-    	)));
+		$rawData = UserRelation::fethFriends($userId);
     	$dataProvider=new CArrayDataProvider($rawData, array(
 		    'id'=>'user',
 		    'sort'=>array(

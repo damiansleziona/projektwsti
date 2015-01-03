@@ -59,6 +59,14 @@ class UserRelation extends CActiveRecord
 		);
 	}
 
+	public static function fethFriends($userId) {
+		$connection=Yii::app()->db;
+    	$sql = 'SELECT * FROM user_relation AS r LEFT JOIN user AS u ON r.user2_id=u.id WHERE r.user1_id='.$userId.' AND active = 1';
+    	$command=$connection->createCommand($sql);
+    	$rawData = $command->queryAll();
+    	return $rawData;
+	}
+
 	/**
 	 * Retrieves a list of models based on the current search/filter conditions.
 	 *

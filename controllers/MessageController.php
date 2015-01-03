@@ -161,11 +161,7 @@ class MessageController extends Controller
 	public function actionUserBox() {
 		$userId = Yii::app()->user->id;
 
-		$connection=Yii::app()->db;
-    	$sql = 'SELECT m.id,s.from_user_id,m.subject,m.content,m.cr_date FROM message_send AS s LEFT JOIN message AS m ON s.message_id=m.id WHERE s.to_user_id='.$userId;
-    	$command=$connection->createCommand($sql);
-    	$rawData = $command->queryAll();
-
+		$rawData = MessageSend::fetchUserMessages($userId);		
     	$dataProvider=new CArrayDataProvider($rawData, array(
 		    'id'=>'message',
 		    'sort'=>array(

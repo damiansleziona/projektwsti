@@ -63,6 +63,14 @@ class MessageSend extends CActiveRecord
 		);
 	}
 
+	public static function fetchUserMessages($userId) {
+		$connection=Yii::app()->db;
+    	$sql = 'SELECT m.id,s.from_user_id,m.subject,m.content,m.cr_date FROM message_send AS s LEFT JOIN message AS m ON s.message_id=m.id WHERE s.to_user_id='.$userId;
+    	$command=$connection->createCommand($sql);
+    	$rawData = $command->queryAll();
+    	return $rawData;
+	}
+
 	/**
 	 * Retrieves a list of models based on the current search/filter conditions.
 	 *
