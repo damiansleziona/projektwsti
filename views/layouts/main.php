@@ -30,11 +30,11 @@
 		<?php $this->widget('zii.widgets.CMenu',array(
 			'items'=>array(
 				array('label'=>'Home', 'url'=>array('/site/index')),
-				array('label'=>'About', 'url'=>array('/site/page', 'view'=>'about')),
-				array('label'=>'Contact', 'url'=>array('/site/contact')),
-				array('label'=>'Users', 'url'=>array('/user/index')),
-				array('label'=>'Znajomi', 'url'=>array('user/friends')),
-				array('label'=>'Wiadomości', 'url'=>array('message/userbox')),
+				// array('label'=>'About', 'url'=>array('/site/page', 'view'=>'about')),
+				// array('label'=>'Contact', 'url'=>array('/site/contact')),
+				array('label'=>'Users', 'url'=>array('/user/index'),'visible'=>!Yii::app()->user->isGuest),
+				array('label'=>'Znajomi', 'url'=>array('user/friends'),'visible'=>!Yii::app()->user->isGuest),
+				array('label'=>'Wiadomości', 'url'=>array('message/userbox'),'visible'=>!Yii::app()->user->isGuest),
 				array('label'=>'Miejsca', 'url'=>array('place/index')),
 				array('label'=>'Zarejestruj sie', 'url'=>array('/user/register'), 'visible'=>Yii::app()->user->isGuest),
 				array('label'=>'Login', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),

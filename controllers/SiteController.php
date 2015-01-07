@@ -29,7 +29,14 @@ class SiteController extends Controller
 	{
 		// renders the view file 'protected/views/site/index.php'
 		// using the default layout 'protected/views/layouts/main.php'
-		$this->render('index');
+		$model=new Place('search');
+		$this->render('index', array(
+			'model'=>$model));
+	}
+
+	public function actionSearchplaces() {
+		
+		if(isset($_GET['Place'])) die('test ok');
 	}
 
 	/**
