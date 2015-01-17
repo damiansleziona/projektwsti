@@ -36,7 +36,9 @@ class SiteController extends Controller
 
 	public function actionSearchplaces() {
 		
-		if(isset($_GET['Place'])) die('test ok');
+		if(isset($_GET['Place'])) 
+		$searchModel = new Place('search');
+		print_r($searchModel); die('test ok');
 	}
 
 	/**

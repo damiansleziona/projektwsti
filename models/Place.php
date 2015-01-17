@@ -13,6 +13,8 @@
  * @property string $city
  * @property string $latitude
  * @property string $longitude
+ * @property integer $category
+ * @property string $visibility
  */
 class Place extends CActiveRecord
 {
@@ -32,14 +34,14 @@ class Place extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('name, cr_user_id, short_description, description, voivodeship, city, latitude, longitude', 'required'),
-			array('cr_user_id', 'numerical', 'integerOnly'=>true),
+			array('name, cr_user_id, short_description, description, voivodeship, city, latitude, longitude, category, visibility', 'required'),
+			array('cr_user_id, category', 'numerical', 'integerOnly'=>true),
 			array('name, short_description', 'length', 'max'=>256),
 			array('voivodeship, city', 'length', 'max'=>128),
 			array('latitude, longitude', 'length', 'max'=>11),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, name, cr_user_id, short_description, description, voivodeship, city, latitude, longitude', 'safe', 'on'=>'search'),
+			array('id, name, cr_user_id, short_description, description, voivodeship, city, latitude, longitude, category, visibility', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -51,6 +53,7 @@ class Place extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
+			'cr_user'=>array(self::BELONGS_TO, 'User', 'cr_user_id')
 		);
 	}
 
@@ -69,6 +72,8 @@ class Place extends CActiveRecord
 			'city' => 'City',
 			'latitude' => 'Latitude',
 			'longitude' => 'Longitude',
+			'category' => 'Category',
+			'visibility' => 'Visibility',
 		);
 	}
 
@@ -99,6 +104,8 @@ class Place extends CActiveRecord
 		$criteria->compare('city',$this->city,true);
 		$criteria->compare('latitude',$this->latitude,true);
 		$criteria->compare('longitude',$this->longitude,true);
+		$criteria->compare('category',$this->category);
+		$criteria->compare('visibility',$this->visibility,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
